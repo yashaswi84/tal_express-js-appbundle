@@ -7,6 +7,11 @@ on:
         type: string
         default: "dsod24-npm-dev-remote"
         description: "Artifactory Repository Name"
+      rt_npm_curation_remote_repo_id:
+        required: true
+        type: string
+        default: "dsod24-npm-curated-dev-remote"
+        description: "NPM Curation Repository Name"
       rt_docker_repo:
         required: true
         type: string
@@ -62,6 +67,11 @@ jobs:
             oidc-provider-name: talet-github
             oidc-audience: talet-audience
       
+      - name: NPM Curation Audit 
+        run: |
+          jf npmc --repo-resolve ${{ github.event.inputs.rt_npm_curation_remote_repo_id }}
+          jf curation-audit
+
       - name: NPM Audit 
         run: |
           jf npmc --repo-resolve ${{ github.event.inputs.rt_npm_remote_repo_id }}
