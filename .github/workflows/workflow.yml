@@ -27,6 +27,11 @@ on:
         type: string
         default: "false"
         description: "Scan with Xray"
+      curation_audit:
+        required: true
+        type: string
+        default: "false"
+        description: "Audit with Curation"
       xr_override_fail_build:
         required: true
         type: string
@@ -69,8 +74,12 @@ jobs:
       
       - name: NPM Curation Audit 
         run: |
-          jf npmc --repo-resolve ${{ github.event.inputs.rt_npm_curation_remote_repo_id }}
-          jf curation-audit
+          if [ ${{ github.event.inputs.curation_audit }} == 'true' ]; then
+            jf npmc --repo-resolve ${{ github.event.inputs.rt_npm_curation_remote_repo_id }}
+            jf curation-audit
+          else
+            echo "Skip Curation Audit!!!"
+          fi
 
       - name: NPM Audit 
         run: |
