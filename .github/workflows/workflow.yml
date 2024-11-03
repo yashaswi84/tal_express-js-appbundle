@@ -83,6 +83,7 @@ jobs:
           if [ ${{ github.event.inputs.curation_audit }} == 'true' ]; then
             jf npmc --repo-resolve ${{ github.event.inputs.rt_npm_curation_remote_repo_id }}
             jf curation-audit
+            rm -rf package-lock.json
           else
             echo "Skip Curation Audit!!!"
           fi
