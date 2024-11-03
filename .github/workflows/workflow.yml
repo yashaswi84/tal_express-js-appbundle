@@ -37,6 +37,11 @@ on:
         type: string
         default: "false"
         description: "Set to false to ignore the fail build coming from Xray (exit code 3)"
+      cli_log_level:
+        required: true
+        type: string
+        default: "INFO"
+        description: "Set JFrog CLI Log level"
 permissions:
   actions: read           # for detecting the Github Actions environment
   id-token: write         # for creating OIDC tokens for signing
@@ -49,6 +54,7 @@ jobs:
     env:
       DOCKER_REPO: ${{ github.event.inputs.rt_docker_repo }}
       IMAGE_NAME: ${{ github.event.inputs.docker_image_name }}
+      JFROG_CLI_LOG_LEVEL: ${{ github.event.inputs.cli_log_level }}
     # Here we install all the tools : docker buildx, QEMU, JDK 11, JFrog CLI
     steps:
       - name: Print Inputs
