@@ -75,8 +75,8 @@ jobs:
           JF_URL: https://${{ vars.JF_URL }}/
           JF_PROJECT: ${{ vars.JF_PROJECT }}
         with:
-            oidc-provider-name: github-express
-            oidc-audience: meghraj-audience
+            oidc-provider-name: balajils1
+            oidc-audience: balajils1
       
       - name: NPM Curation Audit 
         run: |
