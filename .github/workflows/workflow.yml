@@ -72,7 +72,7 @@ jobs:
         uses: jfrog/setup-jfrog-cli@v4
         id: setup-cli
         env:
-          JF_URL: https://adoption.jfrog.io/
+          JF_URL: https://${{ vars.JF_URL }}/
       
         with:
             oidc-provider-name: balajils1
