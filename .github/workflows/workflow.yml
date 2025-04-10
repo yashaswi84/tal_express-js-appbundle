@@ -110,7 +110,7 @@ jobs:
         id: build
         with:
           push: true
-          tags: ${{ vars.JF_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+          tags: ${{ secrets.JF_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
           provenance: false
       
       - name: Docker Add Package to Build
