@@ -110,7 +110,7 @@ jobs:
         id: build
         with:
           push: true
-          tags: https://adoption.jfrog.io/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+          tags: ${{ env.IMAGE_NAME }}:${{ github.run_number }}
           provenance: false
       
       - name: Docker Add Package to Build
