@@ -68,16 +68,14 @@ jobs:
         with:
             node-version: 18
       
-      - name: Setup JFrog CLI 
+      - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4
-        id: setup-cli
         env:
-          JF_URL: https://${{ vars.JF_URL }}/
-      
+          JF_URL: https://adoption.jfrog.io/
         with:
-            oidc-provider-name: balajils1
-            oidc-audience: balajils1
-      
+          oidc-provider-name: balajils1
+          oidc-audience: balajils1
+          
       - name: NPM Curation Audit 
         run: |
           if [ ${{ github.event.inputs.curation_audit }} == 'true' ]; then
