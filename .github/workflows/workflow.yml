@@ -15,7 +15,7 @@ on:
       rt_docker_repo:
         required: true
         type: string
-        default: "voyagers-docker-remote"
+        default: "voyagers-docker"
         description: "Artifactory Docker repository"
       docker_image_name:
         required: true
@@ -110,7 +110,7 @@ jobs:
         id: build
         with:
           push: true
-          tags: ${{ secrets.JF_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+          tags: https://adoption.jfrog.io/${{ env.IMAGE_NAME }}:${{ github.run_number }}
           provenance: false
       
       - name: Docker Add Package to Build
