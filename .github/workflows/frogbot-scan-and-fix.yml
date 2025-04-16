@@ -35,8 +35,8 @@ jobs:
 
       - uses: jfrog/frogbot@v2
         with:
-          oidc-provider-name: github-express
-          oidc-audience: meghraj-audience
+          oidc-provider-name: balajils1
+          oidc-audience: balajils1
         env:
           # [Mandatory]
           # JFrog platform URL
