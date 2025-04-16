@@ -101,7 +101,7 @@ jobs:
       - name: Docker Authenticate
         uses: docker/login-action@v3
         with:
-          registry: adoption.jfrog.io
+          registry: adoptioneplus.jfrog.io
           username: ${{ secrets.JF_USER }}
           password: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
 
@@ -120,9 +120,9 @@ jobs:
 
       - name: Docker Scan
         run: |
-          echo "digest=$(docker images --no-trunc --quiet adoption.jfrog.io/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }})" >> $GITHUB_OUTPUT
-          jf docker pull adoption.jfrog.io/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
-          jf docker scan adoption.jfrog.io/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ github.run_number }} --fail=${{ github.event.inputs.xr_override_fail_build }} --vuln
+          echo "digest=$(docker images --no-trunc --quiet adoptioneplus.jfrog.io/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }})" >> $GITHUB_OUTPUT
+          jf docker pull adoptioneplus.jfrog.io/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+          jf docker scan adoptioneplus.jfrog.io/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ github.run_number }} --fail=${{ github.event.inputs.xr_override_fail_build }} --vuln
       
       - name: Publish Build Info
         run: |
