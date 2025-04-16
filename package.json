@@ -13,7 +13,7 @@
     "ejs": "3.1.6",
     "express": "5.0.1",
     "lodash": "4.17.0",
-    "protobufjs": "6.11.2",
+    "protobufjs": "7.2.4",
     "cors.js": "0.0.1-security",
     "vm2": "3.9.4",
     "pm2": "5.3.0"
