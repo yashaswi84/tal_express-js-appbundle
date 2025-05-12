@@ -15,7 +15,7 @@ on:
       rt_docker_repo:
         required: true
         type: string
-        default: "frogbot-docker-remote"
+        default: "frogbot-docker"
         description: "Artifactory Docker repository"
       docker_image_name:
         required: true
